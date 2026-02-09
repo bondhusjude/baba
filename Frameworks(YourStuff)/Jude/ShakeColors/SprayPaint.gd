@@ -24,10 +24,11 @@ func _process(delta: float) -> void:
 	
 func _on_game_root_start_game() -> void:
 	started = true
-	player.started = true
 	rich_text_label.show()
 	
 	await get_tree().create_timer(1.0).timeout #wait for instructions
+	player.started = true
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	rich_text_label.hide()
 	timer_words.show()
 	started = true
@@ -36,3 +37,4 @@ func _on_game_root_start_game() -> void:
 	await time_done
 	player.started = false
 	GameRoot.end_game.emit(won) #defaults to false if button is not pressed
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

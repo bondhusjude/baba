@@ -8,7 +8,7 @@ signal end_game(won : bool)
 
 func _ready() -> void:
 	if get_parent() is Window:
-		pass
+		_start_game()
 	else:
 		game_manager = get_parent()
 
@@ -21,5 +21,8 @@ func _end_game(won : bool):
 	game_finished.emit(self, won)
 
 func get_intensity():
-	if game_manager: return game_manager.game_intensity
+	if game_manager: 
+		return game_manager.game_intensity
+	else:
+		return 0.2 #testing mode
 		

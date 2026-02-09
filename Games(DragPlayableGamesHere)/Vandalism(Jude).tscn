@@ -17,14 +17,16 @@ height = 1.0419922
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g1ecg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0jcem"]
+size = Vector3(1.2073364, 1.6411133, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vcwi6"]
 radius = 14.259209
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5ygj8"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ljf61"]
+sky_top_color = Color(0.6075216, 0.2399253, 0.7932749, 1)
 
 [sub_resource type="Sky" id="Sky_yik30"]
-sky_material = SubResource("ProceduralSkyMaterial_5ygj8")
+sky_material = SubResource("ProceduralSkyMaterial_ljf61")
 
 [sub_resource type="Environment" id="Environment_h26no"]
 background_mode = 2
@@ -76,28 +78,6 @@ script = ExtResource("1_ot2hq")
 [node name="Game" type="Node2D" parent="." unique_id=582359250]
 script = ExtResource("2_ljf61")
 
-[node name="Description" type="RichTextLabel" parent="Game" unique_id=47162102]
-visible = false
-offset_right = 1153.0
-offset_bottom = 646.0
-theme_override_font_sizes/normal_font_size = 30
-text = "Baseplate
-click the button to continue >:)"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TimerWords" type="RichTextLabel" parent="Game" unique_id=629589033]
-visible = false
-offset_left = 4.0
-offset_top = 158.0
-offset_right = 1157.0
-offset_bottom = 804.0
-theme_override_font_sizes/normal_font_size = 30
-text = "Time Left: 
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Game" unique_id=357351056]
 offset_right = 40.0
 offset_bottom = 40.0
@@ -112,7 +92,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30513, -0.25854492, -1.0651
 size = Vector3(5.8591614, 0.48291016, 5.932129)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Game/SubViewportContainer/SubViewport" unique_id=1306000328]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19911194, 0.8609619, -3.1084166)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11569047, 0.84375715, -2.763332)
 size = Vector3(5.6471252, 2.7219238, 3.086792)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Game/SubViewportContainer/SubViewport" unique_id=391332752]
@@ -128,6 +108,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45377874, 0.8609619, 1.529
 size = Vector3(4.4571114, 2.7219238, 0.67593384)
 
 [node name="Player" type="CharacterBody3D" parent="Game/SubViewportContainer/SubViewport" unique_id=1240587925 groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2803173, 0, 0)
 collision_layer = 2
 script = ExtResource("3_vj70r")
 
@@ -191,9 +172,8 @@ show_percentage = false
 script = ExtResource("8_0jcem")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Game/SubViewportContainer/SubViewport/SprayWall" unique_id=1878461872 groups=["interact"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0053100586, 0.6400757, -0.26953125)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2590027, 0.9606323, -1.6504204)
 shape = SubResource("BoxShape3D_0jcem")
-disabled = true
 
 [node name="Timer" type="Timer" parent="Game/SubViewportContainer/SubViewport/SprayWall" unique_id=535407756]
 wait_time = 0.05
@@ -204,6 +184,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Game/SubViewportContainer/SubViewport/SprayWall/Area3D" unique_id=400221431]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7417183, -1.0067637)
 shape = SubResource("SphereShape3D_vcwi6")
 debug_color = Color(0, 0.64705884, 0.24313726, 0.7294118)
 
@@ -221,9 +202,32 @@ environment = SubResource("Environment_h26no")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3513836, 0, -9.791424)
 
 [node name="Cube" type="MeshInstance3D" parent="Game/SubViewportContainer/paintings" unique_id=904135161]
-transform = Transform3D(-2.7145099e-08, 0, -0.62100744, 0, 0.7642592, 0, 0.62100744, 0, -2.7145099e-08, 1.6014826, 1.0216051, 8.844153)
+transform = Transform3D(-2.7145099e-08, 0, -0.62100744, 0, 0.7642592, 0, 0.62100744, 0, -2.7145099e-08, 1.6014826, 1.0216051, 9.1818)
 material_override = SubResource("StandardMaterial3D_sg72q")
 mesh = SubResource("ArrayMesh_icnx6")
+
+[node name="Description" type="RichTextLabel" parent="Game" unique_id=47162102]
+offset_left = -378.0
+offset_top = -294.0
+offset_right = 775.0
+offset_bottom = 352.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "right click to vandalise!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimerWords" type="RichTextLabel" parent="Game" unique_id=629589033]
+offset_left = 380.0
+offset_top = -294.0
+offset_right = 1533.0
+offset_bottom = 352.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "Time Left: 
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="start_game" from="." to="Game" method="_on_game_root_start_game"]
 [connection signal="timeout" from="Game/SubViewportContainer/SubViewport/SprayWall/Timer" to="Game/SubViewportContainer/SubViewport/SprayWall" method="_on_timer_timeout"]

@@ -6,8 +6,6 @@ var mouse_sensitivity = 0.002
 @onready var ray_cast_3d: RayCast3D = $Camera3D/RayCast3D
 @onready var hand: Marker3D = $Hand
 
-var mouse_enabled = false
-
 @onready var spray: Node3D = $Camera3D/spray
 @onready var hold: Marker3D = $Camera3D/Hold
 @onready var gone: Marker3D = $Camera3D/Gone
@@ -16,9 +14,6 @@ var mouse_enabled = false
 
 var started = false
 
-func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
 func check_anim():
 	$Node2D/CheckPoint/AnimationPlayer.play("checkpoint")
 	
@@ -39,9 +34,7 @@ func interact():
 
 func _input(event: InputEvent) -> void:
 	if !started: return
-	if mouse_enabled:
-		pass
-		return
+	
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		camera_3d.rotate_x(-event.relative.y * mouse_sensitivity)
