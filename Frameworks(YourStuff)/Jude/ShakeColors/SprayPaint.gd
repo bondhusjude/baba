@@ -1,5 +1,5 @@
 extends Node2D
-@onready var GameRoot: MicroGameRoot = $".."
+@onready var GameRoot: Game = $".."
 
 @onready var rich_text_label: RichTextLabel = $Description
 @onready var timer_words: RichTextLabel = $TimerWords

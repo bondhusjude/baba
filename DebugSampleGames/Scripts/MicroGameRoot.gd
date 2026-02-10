@@ -1,4 +1,4 @@
-class_name MicroGameRoot extends Node2D
+class_name Game extends Node2D
 
 var game_manager: GameManager
 
@@ -7,7 +7,7 @@ signal start_game
 signal end_game(won : bool)
 
 func _ready() -> void:
-	if get_parent() is Window:
+	if get_parent() is not GameManager:
 		_start_game()
 	else:
 		game_manager = get_parent()

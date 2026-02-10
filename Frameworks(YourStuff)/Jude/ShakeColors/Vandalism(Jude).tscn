@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://d28a1gihixqie" path="res://DebugSampleGames/Scripts/MicroGameRoot.gd" id="1_ot2hq"]
 [ext_resource type="Script" uid="uid://40rx4l3n4tpp" path="res://Frameworks(YourStuff)/Jude/ShakeColors/SprayPaint.gd" id="2_ljf61"]
 [ext_resource type="Texture2D" uid="uid://b4nrfundlknrn" path="res://Frameworks(YourStuff)/Jude/ShakeColors/checkerboard_imageedit_17_4782211417.jpg" id="3_70f1w"]
-[ext_resource type="Script" uid="uid://bwl6hjy15q3lo" path="res://Frameworks(YourStuff)/Jude/ShakeColors/playerreal.gd" id="3_vj70r"]
+[ext_resource type="Script" path="res://Frameworks(YourStuff)/Jude/ShakeColors/playerreal.gd" id="3_vj70r"]
 [ext_resource type="Texture2D" uid="uid://fhmu4bylj035" path="res://Frameworks(YourStuff)/Jude/ShakeColors/wall.png" id="4_prm7q"]
 [ext_resource type="PackedScene" uid="uid://hphh2enc663v" path="res://Frameworks(YourStuff)/Jude/ShakeColors/spray.blend" id="4_yiy5i"]
 [ext_resource type="AudioStream" uid="uid://d2xf13c8te4c2" path="res://Frameworks(YourStuff)/Jude/ShakeColors/interactiveshaking.wav" id="5_70f1w"]
-[ext_resource type="Script" uid="uid://b4fj1d4elefsl" path="res://Frameworks(YourStuff)/Jude/ShakeColors/shake_holder.gd" id="6_prm7q"]
+[ext_resource type="Script" path="res://Frameworks(YourStuff)/Jude/ShakeColors/shake_holder.gd" id="6_prm7q"]
 [ext_resource type="Texture2D" uid="uid://b2unlagfaw8ka" path="res://Frameworks(YourStuff)/Jude/ShakeColors/metal.png" id="7_0jcem"]
 [ext_resource type="Texture2D" uid="uid://xkjtisir6wev" path="res://Frameworks(YourStuff)/Jude/ShakeColors/2.png" id="7_uyfn3"]
-[ext_resource type="Script" uid="uid://bu37gy38007yx" path="res://Frameworks(YourStuff)/Jude/ShakeColors/stat.gd" id="8_0jcem"]
+[ext_resource type="Script" path="res://Frameworks(YourStuff)/Jude/ShakeColors/stat.gd" id="8_0jcem"]
 [ext_resource type="AudioStream" uid="uid://p6p62b1ve5dj" path="res://Frameworks(YourStuff)/Jude/ShakeColors/ding.wav" id="9_5ygj8"]
 [ext_resource type="Texture2D" uid="uid://bi4qsrpi6pim3" path="res://Frameworks(YourStuff)/Jude/ShakeColors/rmb.png" id="13_prm7q"]
 
@@ -94,8 +94,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_eo1av")
 
-[node name="GameRoot" type="Node2D" unique_id=2067474409]
+[node name="GameRoot" type="Node2D" unique_id=1022882112]
 script = ExtResource("1_ot2hq")
+metadata/_custom_type_script = "uid://d28a1gihixqie"
 
 [node name="Game" type="Node2D" parent="." unique_id=582359250]
 script = ExtResource("2_ljf61")
@@ -158,12 +159,13 @@ mesh = SubResource("CapsuleMesh_g1ecg")
 
 [node name="Camera3D" type="Camera3D" parent="Game/SubViewportContainer/SubViewport/Player" unique_id=61123537]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64104, 0)
+current = true
 fov = 80.0
 
 [node name="spray" parent="Game/SubViewportContainer/SubViewport/Player/Camera3D" unique_id=2016465519 instance=ExtResource("4_yiy5i")]
 transform = Transform3D(-0.12514287, 1.5892198e-15, 1.8896051e-08, -7.3532087e-09, 0.115278944, -0.0486981, -1.7406636e-08, -0.0486981, -0.115278944, 0.44090378, -0.54883087, -0.26448578)
 
-[node name="Cylinder" parent="Game/SubViewportContainer/SubViewport/Player/Camera3D/spray" index="0" unique_id=703352690]
+[node name="Cylinder" parent="Game/SubViewportContainer/SubViewport/Player/Camera3D/spray" index="0" unique_id=838695139]
 layers = 2
 material_override = SubResource("StandardMaterial3D_y16p0")
 

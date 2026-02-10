@@ -10,29 +10,34 @@ const ENGINE_SPEED_INCREASE = 0.2
 
 const TRANS_TIME = 1.0
 ## List of all available games to play
-var all_games : Array[PackedScene] = []
+const BASEPLATE = preload("res://Frameworks(YourStuff)/Jude/BasePlate/Baseplate.tscn")
+const VANDALISM_JUDE_ = preload("res://Frameworks(YourStuff)/Jude/ShakeColors/Vandalism(Jude).tscn")
+
+var all_games : Array[PackedScene] = [BASEPLATE, VANDALISM_JUDE_]
 ## List of games left to play this stage before time scale increases
 var games_to_play_this_stage : Array[PackedScene]
 var score : int = 0
 var lives = 3
 func _ready() -> void:
 #region Loader of files in Games folder
-	var path = "res://Games(DragPlayableGamesHere)/"
-	var dir_access := DirAccess.open(path)
-	
-	dir_access.list_dir_begin()
-	var file_name := dir_access.get_next()
-	while file_name != "":
-		if not dir_access.current_is_dir() and file_name.get_extension() == "tscn":
-			var full_path := path.path_join(file_name)
-			
-			var scene: PackedScene = load(full_path)
-			if scene:
-				all_games.append(scene)
-		file_name = dir_access.get_next()
-		dir_access.list_dir_end()
-	games_to_play_this_stage = all_games.duplicate()
+
+	#var path = "res://Games(DragPlayableGamesHere)/"
+	#var dir_access := DirAccess.open(path)
+	#
+	#dir_access.list_dir_begin()
+	#var file_name := dir_access.get_next()
+	#while file_name != "":
+		#if not dir_access.current_is_dir() and file_name.get_extension() == "tscn":
+			#var full_path := path.path_join(file_name)
+			#
+			#var scene: PackedScene = load(full_path)
+			#if scene:
+				#all_games.append(scene)
+		#file_name = dir_access.get_next()
+		#dir_access.list_dir_end()
+	#games_to_play_this_stage = all_games.duplicate()
 #endregion
+	games_to_play_this_stage = all_games.duplicate()
 	switch_scene(null)
 	global_ui_container.set_lives(lives)
 	
@@ -66,7 +71,7 @@ func switch_scene(old_scene : Node):
 		await old_scene.tree_exited
 	var next_game : PackedScene = games_to_play_this_stage.pick_random()
 	games_to_play_this_stage.erase(next_game)
-	var new_game : MicroGameRoot = next_game.instantiate()
+	var new_game : Game = next_game.instantiate()
 	add_child.call_deferred(new_game)
 	new_game.position = start_point.position
 	var tween_starter_position = get_tree().create_tween()

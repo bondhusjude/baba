@@ -1,5 +1,5 @@
-extends Node2D
-@onready var GameRoot: MicroGameRoot = $".."
+extends Game
+@onready var GameRoot: Game = $".."
 
 @onready var Description: RichTextLabel = $Description
 @onready var button: Button = $Button
@@ -9,15 +9,6 @@ var timer = 1.0
 var won = false
 
 signal time_done
-
-func _on_test_1_start_game() -> void:
-	Description.show()
-	await get_tree().create_timer(1.0).timeout #wait for instructions
-	timer_words.show()
-	button.show()
-	timer = 2/GameRoot.get_intensity()
-	await time_done
-	GameRoot.end_game.emit(won) #defaults to false if button is not pressed
 
 func _process(delta: float) -> void:
 	if timer_words:
@@ -32,3 +23,12 @@ func _process(delta: float) -> void:
 func _on_button_pressed() -> void:
 	button.modulate = Color.GREEN
 	won = true
+
+func _on_game_root_start_game() -> void:
+	Description.show()
+	await get_tree().create_timer(1.0).timeout #wait for instructions
+	timer_words.show()
+	button.show()
+	timer = 2/GameRoot.get_intensity()
+	await time_done
+	GameRoot.end_game.emit(won) #defaults to false if button is not pressed

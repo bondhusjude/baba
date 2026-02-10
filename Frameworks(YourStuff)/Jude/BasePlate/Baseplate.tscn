@@ -4,8 +4,9 @@
 [ext_resource type="Script" uid="uid://bwtk00eaqm1dj" path="res://Frameworks(YourStuff)/Jude/BasePlate/game.gd" id="2_7ln31"]
 [ext_resource type="Texture2D" uid="uid://clj05tcdxmbnf" path="res://Frameworks(YourStuff)/Jude/BasePlate/icon.jpg" id="3_3rafc"]
 
-[node name="GameRoot" type="Node2D" unique_id=2067474409]
+[node name="GameRoot" type="Node2D" unique_id=34343246]
 script = ExtResource("1_1krpx")
+metadata/_custom_type_script = "uid://d28a1gihixqie"
 
 [node name="Game" type="Node2D" parent="." unique_id=582359250]
 script = ExtResource("2_7ln31")
@@ -44,5 +45,5 @@ position = Vector2(577, 138)
 scale = Vector2(0.052373398, 0.052373398)
 texture = ExtResource("3_3rafc")
 
-[connection signal="start_game" from="." to="Game" method="_on_test_1_start_game"]
+[connection signal="start_game" from="." to="Game" method="_on_game_root_start_game"]
 [connection signal="pressed" from="Game/Button" to="Game" method="_on_button_pressed"]

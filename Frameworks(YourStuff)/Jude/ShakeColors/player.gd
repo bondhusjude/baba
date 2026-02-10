@@ -9,7 +9,7 @@ var friction = .1
 @onready var hand: Marker3D = $Hand
 @onready var ui: Control = $UI
 
-const SMOKE_GRENADE = preload("res://scenes/smoke_grenade.tscn")
+#const SMOKE_GRENADE = preload("res://scenes/smoke_grenade.tscn")
 
 var mouse_enabled = false
 var current_paint : Color
@@ -129,7 +129,7 @@ func clearInk():
 		i.queue_free()
 	current_paint = Color(0,0,0)
 		
-const MIXTURE = preload("res://scenes/mixture.tscn")
+#const MIXTURE = preload("res://scenes/mixture.tscn")
 @onready var mixtures: StaticBody2D = $"UI/Smoke Grenade/mixtures"
 
 func add_mixture(col : Color):
