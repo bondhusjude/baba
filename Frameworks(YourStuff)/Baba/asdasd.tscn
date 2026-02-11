@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bdf8o0qvbrbnf"]
+
+[ext_resource type="Script" uid="uid://bxecc1utw60x3" path="res://Frameworks(YourStuff)/Baba/s.gd" id="1_2ynwv"]
+
+[node name="Asdasd" type="Node2D" unique_id=1868517878]
+script = ExtResource("1_2ynwv")
